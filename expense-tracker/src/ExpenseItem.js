@@ -1,6 +1,8 @@
-// display expense details and a delete button
-
+// imports
+import './styles/App.css';
 import React from 'react';
+
+// display expense details and a delete button
 
 const ExpenseItem = ({ expense, deleteExpense, index }) => {
     return (
@@ -10,7 +12,7 @@ const ExpenseItem = ({ expense, deleteExpense, index }) => {
             <td>{expense.date}</td>
             <td>{expense.category}</td>
             <td>
-                <button onClick={() => deleteExpense(index)}>Delete</button>
+                <button className="delete_button" onClick={() => deleteExpense(index)}>Delete</button>
             </td>
         </tr>
     );

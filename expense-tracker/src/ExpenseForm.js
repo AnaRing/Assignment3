@@ -1,7 +1,8 @@
-// implement form inputs and validation logic, display error messages
-
-// importing react
+// imports
+import './styles/App.css';
 import React, { useState } from 'react';
+
+// implement form inputs and validation logic, display error messages
 
 // form input
 
@@ -20,7 +21,8 @@ const ExpenseForm = ({ addExpense }) => {
             setError('Please fill in the mandatory fields.');
             return;
         }
-        addExpense({title, amount, date, category: category || '-'});
+        const isoDate = new Date(date).toISOString();
+        addExpense({title, amount, date : isoDate, category: category || '-'});
         setTitle('');
         setAmount('');
         setDate('');
@@ -44,8 +46,8 @@ const ExpenseForm = ({ addExpense }) => {
                 <option value="Health">Health</option>
                 <option value="Other">Other</option>
             </select>
-            <button type="submit">Add Expense</button>
-            {error && <p>{error}</p>}
+            <button className="add_button" type="submit">Add Expense</button>
+            {error && <p className="error_message">{error}</p>}
         </form>
     );
 };

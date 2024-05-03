@@ -1,8 +1,9 @@
-// map the list and render ExpenseItem components
-
+// imports
+import './styles/App.css';
 import React from 'react';
 import ExpenseItem from './ExpenseItem';
 
+// map the list and render ExpenseItem components
 const ExpenseList = ({ expenses, deleteExpense}) => {
     return (
         <div>
@@ -14,7 +15,7 @@ const ExpenseList = ({ expenses, deleteExpense}) => {
                         <th>Amount</th>
                         <th>Date</th>
                         <th>Category</th>
-                        <th>Action</th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>

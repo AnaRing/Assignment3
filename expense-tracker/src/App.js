@@ -22,11 +22,15 @@ const App = () => {
   const totalAmount = expenses.reduce((acc, expense) => acc + parseFloat(expense.amount), 0);
 
   return (
-    <div>
-    <h1>Expense Tracker App</h1>
-    <ExpenseForm addExpense={addExpense}/>
+    <div className="application">
+      <div className="form_container">
+        <h1 className="headline">Expense Tracker App</h1>
+      <ExpenseForm addExpense={addExpense}/>
+      </div>
+    <div className="list_container">
     <ExpenseList expenses={expenses} deleteExpense={deleteExpense}/>
-    <p>Total Amount: ${totalAmount.toFixed(2)}</p>
+    <p className="total_amount">Total Amount: ${totalAmount.toFixed(2)}</p>
+    </div>
     </div>
   );
 };
