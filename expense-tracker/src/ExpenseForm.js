@@ -21,6 +21,8 @@ const ExpenseForm = ({ addExpense }) => {
             setError('Please fill in the mandatory fields.');
             return;
         }
+
+    
         const isoDate = new Date(date).toISOString();
         addExpense({title, amount, date : isoDate, category: category || '-'});
         setTitle('');
@@ -28,6 +30,28 @@ const ExpenseForm = ({ addExpense }) => {
         setDate('');
         setCategory('');
         setError('');
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        if (name === 'category') {
+            setCategory(value || '-');
+        } else {
+            switch (name) {
+                case 'title':
+                    setTitle(value);
+                    break;
+                case 'amount':
+                    setAmount(value);
+                    break;
+                case 'date':
+                    setDate(value);
+                    break;
+                default:
+                    break;
+            }
+        }
     };
 
 // implementing input-form data
